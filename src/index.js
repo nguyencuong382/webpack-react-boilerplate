@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import './css/main.css';
+import './scss/main.scss';
 
 class App extends Component {
   constructor(props) {
