@@ -4,11 +4,14 @@ module.exports = {
     commonjs: true,
     es6: true
   },
+  "parser": "babel-eslint",
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
     'prettier',
-    'plugin:prettier/recommended'
+    'plugin:prettier/recommended',
+    'plugin:import/errors',
+    'plugin:import/warnings'
   ],
   parserOptions: {
     ecmaFeatures: {
@@ -20,13 +23,14 @@ module.exports = {
   plugins: ['react', 'prettier'],
   rules: {
     indent: ['error', 2],
-    'linebreak-style': ['error', 'unix'],
+    'linebreak-style': ['error', 'windows'],
     quotes: ['warn', 'single'],
     semi: ['error', 'always'],
     'no-unused-vars': [
       'warn',
       { vars: 'all', args: 'none', ignoreRestSiblings: false }
     ],
-    'prettier/prettier': 'error'
-  }
+    'prettier/prettier': 'error',
+    "no-console": "off",
+  },
 };

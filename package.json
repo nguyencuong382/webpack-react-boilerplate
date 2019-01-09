@@ -6,12 +6,17 @@
   "author": "Margarita Obraztsova <marharyta.obraztsova@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "NODE_ENV=development webpack-dev-server --mode=development --hot"
+    "development": "NODE_ENV=development webpack-dev-server --mode=development --hot",
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development",
+    "watch": "webpack -w -d"
   },
   "dependencies": {
     "autoprefixer": "^8.6.3",
     "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.1",
     "babel-loader": "^7.1.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
@@ -19,11 +24,13 @@
     "eslint": "^5.0.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-prettier": "^2.6.1",
+    "eslint-plugin-react": "^7.12.3",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.9.0",
     "postcss-loader": "^2.1.5",
+    "prettier": "^1.15.3",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "sass-loader": "^7.0.3",
@@ -36,5 +43,8 @@
     "webpack-dev-server": "^3.1.4",
     "webpack-md5-hash": "^0.0.6",
     "yarn": "^1.7.0"
+  },
+  "devDependencies": {
+    "eslint-plugin-import": "^2.14.0"
   }
 }

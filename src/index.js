@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './css/main.css';
 
-class App extends React.Component {
+class App extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  showA = () => {
+    console.log('aaa');
+  };
+
   render() {
-    return <div> Hello, world! </div>;
+    return (
+      <div>
+        <button onClick={this.showA}>Click here</button>
+      </div>
+    );
   }
 }
 

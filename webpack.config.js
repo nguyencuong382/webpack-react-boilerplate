@@ -1,4 +1,5 @@
 // webpack v4
+/* eslint-disable */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
@@ -54,5 +55,6 @@ module.exports = {
       configFile: './stylelint.config.js',
       files: './src/css/*.css'
     })
-  ]
+  ],
+  watch: true
 };
