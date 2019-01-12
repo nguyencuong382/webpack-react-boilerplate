@@ -35,6 +35,6 @@ module.exports = {
     'media-feature-colon-space-after': 'always',
     'media-feature-colon-space-before': 'never',
     'media-feature-name-case': 'lower',
-    'comment-whitespace-inside': 'always'
-  }
+    'comment-whitespace-inside': 'always',
+  },
 };

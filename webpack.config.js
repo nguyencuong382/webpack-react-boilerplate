@@ -7,54 +7,69 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
+const dist = './public';
+
 module.exports = {
   entry: {
-    main: './src/index.js'
+    main: './src/index.js',
   },
   output: {
-    path: path.resolve(__dirname, 'public'),
-    filename: 'js/app.js'
+    path: path.resolve(__dirname, dist),
+    filename: 'js/app_react.js',
   },
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: './public',
+    contentBase: dist,
     open: true,
-    hot: true
+    hot: true,
   },
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
-        }
+          loader: 'babel-loader',
+        },
       },
       {
         test: /\.scss$/,
-        use: [{
-          loader: "style-loader"
-        }, {
-          loader: MiniCssExtractPlugin.loader,
-          options: {
-            // you can specify a publicPath here
-            // by default it use publicPath in webpackOptions.output
-            // publicPath: '../'
-          }
-        }, {
-          loader: "css-loader"
-        }, {
-          loader: "sass-loader",
-          options: {
-            implementation: require("sass")
-          }
-        }]
-      }
-    ]
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              implementation: require('sass'),
+            },
+          },
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: 'css-loader',
+          },
+        ],
+      },
+    ],
   },
   plugins: [
-    // new CleanWebpackPlugin('dist', {}),
+    // new CleanWebpackPlugin(dist, {}),
     new MiniCssExtractPlugin({
-      filename: 'css/app.css'
+      filename: 'css/app_react.css',
     }),
     // new HtmlWebpackPlugin({
     //   inject: false,
@@ -65,8 +80,8 @@ module.exports = {
     new WebpackMd5Hash(),
     new StyleLintPlugin({
       configFile: './stylelint.config.js',
-      files: './src/css/*.scss'
-    })
+      files: './src/css/*.scss',
+    }),
   ],
-  watch: true
+  watch: true,
 };

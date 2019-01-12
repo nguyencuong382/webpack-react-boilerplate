@@ -1,25 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import './scss/main.scss';
+import App from './App';
+import './assets/scss/app.scss';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  showA = () => {
-    console.log('aaa');
-  };
-
-  render() {
-    return (
-      <div>
-        <button onClick={this.showA}>Click here</button>
-      </div>
-    );
-  }
-}
-
-const rootElement = document.getElementById('root');
-
-ReactDOM.render(<App />, rootElement);
+ReactDOM.render(<App />, document.getElementById('root'));
