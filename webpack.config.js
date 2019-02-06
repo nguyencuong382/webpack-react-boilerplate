@@ -38,7 +38,9 @@ module.exports = {
           {
             loader: 'style-loader',
           },
-          
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
           {
             loader: 'css-loader',
           },
